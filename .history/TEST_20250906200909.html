@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <section class="about-us">
+  <div class="container">
+  <div class="team"></div>
+  <div class="team"></div>
+  <div class="team"></div>
+  <div class="team"></div>
+  <div class="team"></div>
+  <div class="team"></div>
+  </div>
+  
+</section>
+<style>
+  *{
+      padding: 0;
+      margin: 0;
+    }
+  .about-us{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:black;
+  z-index: -2;
+}
+.about-us .container{
+  height: 70%;
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+
+}
+@property --degree{
+  syntax: '<degree>';
+  initial-value: 0deg;
+  inherits: false;
+}
+.team{
+  background-color: black;
+  position: relative;
+  border-radius: 10px;
+  border: 1px solid white;
+  height: 100%;
+  width: 100%;
+  z-index:3;
+  overflow:hidden;
+}
+.team::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  background-image: conic-gradient(from 60deg,transparent 40% ,#94d7fe);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+}
+
+</style>
+</body>
+</html>

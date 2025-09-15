@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="loader">
+    <svg viewBox="0 0 400 160">
+      <text x="50%" y="50%" dy=".32rem" text-anchor="middle" class="text">
+        MOREFIXA
+      </text>
+    </svg>
+  </div>
+  <style>
+    svg text {
+      fill: transparent;
+      stroke: black;
+      font-size: 4rem;
+      stroke-width: 2;
+      animation: move 3s infinite alternate ease-in-out;
+    }
+    @keyframes move {
+      0%{
+         
+      
+      stroke-width: 3;
+      stroke-dasharray: 0 32%;
+      stroke-dashoffset: 25%;
+      
+      }
+     30%{
+        
+      
+      stroke-width: 3;
+      stroke-dasharray: 10px 32%;
+      stroke-dashoffset: 25%;
+      
+      }
+     70%{
+      
+      
+      stroke-width: 3;
+      stroke-dasharray: 32% 0;
+      stroke-dashoffset:-25% ;
+
+      }
+     100%{
+      fill: black;
+      stroke-width: 3;
+      stroke-dasharray: 32% 0;
+      stroke-dashoffset: -25%;
+      
+      }
+    
+    
+      
+    }
+  </style>
+</body>
+</html>

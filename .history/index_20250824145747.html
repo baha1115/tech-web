@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+   <div>
+    <p>Home</p>
+    <p>Contact</p>
+    <p>features</p>
+    <p>services</p>
+   </div>
+  </div>
+  <div class="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    .container{
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: aliceblue;
+      background-color: black;
+    }
+    .container div{
+      height: 70vh;
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    p{
+      font-size: xx-large;
+      width: 100%;
+      height: 25%;
+      text-align: center;
+      cursor: pointer;
+      transition:background-color 0.3s ease-in-out,scale 0.3s ease-in-out ;
+      display: flex;
+      place-content: center;
+    }
+    p:hover{
+      background-color: rgb(75, 72, 72);
+      scale: 1.1;
+    }
+    body{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      position: relative;
+    }
+    .burger{
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      background-color:transparent;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      
+    }
+    span{
+      display: block;
+      background-color: black;
+      width: 25px;
+      height: 3px;
+      border-radius: 35%;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out,opacity 0.3s ease-in-out,scale 0.3s ease-in-out ;
+    }
+    .burger[lala] span:nth-child(1){
+      transform:translate3d(0,8px,0) rotate(45deg) ;
+    }
+    .burger[lala] span:nth-child(2){
+      opacity: 0;
+      scale: 0;
+    }
+    .burger[lala] span:nth-child(3){
+       transform:translate3d(0,-8px,0) rotate(-45deg)  ;
+    }
+    
+
+  </style>
+  <script>
+    let span1=document.querySelector('.span1')
+    let span2=document.querySelector('.span2')
+    let span3=document.querySelector('.span3')
+  
+
+    let burger=document.querySelector('.burger')
+    burger.addEventListener('click',e=>{
+      burger.toggleAttribute('lala')
+    })
+  
+  </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+/* خلفية عامة */
+.about-page {
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
+  padding: 50px 30px;
+  gap: 30px;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* عنوان */
+.title {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+}
+.title h1 {
+  font-size: 3rem;
+  background: linear-gradient(90deg, #94d7fe, #00cfff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+}
+.title p {
+  font-size: 1.2rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* الحاوية */
+.information-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 30px;
+}
+
+/* النصوص */
+.information-container h2 {
+  color: #94d7fe;
+  margin-bottom: 10px;
+}
+.information-container p,
+.information-container ul {
+  color: #ddd;
+  line-height: 1.6;
+}
+.our-values ul {
+  list-style: none;
+  padding: 0;
+}
+.our-values li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.our-values li::before {
+  content: "🔒";
+  font-size: 1.2rem;
+}
+
+/* الفيديو */
+.video video {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* 💡 البوردر المشع الديناميكي */
+.glow-border {
+  position: relative;
+  padding: 20px;
+  border-radius: 20px;
+  
+}
+.glow-border::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate:-50% -50% ;
+  padding: 3px;
+  border-radius: 11px;
+  background: conic-gradient(from 90deg, #94d7fe, #00cfff, #94d7fe);
+
+  z-index: -1;
+}
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="about-page">
+  <div class="title glow-border">
+    <h1>About Us</h1>
+    <p>
+      We protect businesses from digital threats with proactive security, 
+      24/7 monitoring and tailored strategies that scale with you.
+    </p>
+  </div>
+
+  <div class="information-container">
+    <div class="our-vision glow-border">  
+      <h2>Our Vision</h2>
+      <p>
+        A world where companies can innovate without fear — where digital trust 
+        is earned through resilient systems, continuous improvement and transparent practices.
+      </p>
+    </div>
+
+    <div class="our-mission glow-border">  
+      <h2>Our Mission</h2>
+      <p>
+        To make cybersecurity accessible and effective for every organization. 
+        We combine real-time monitoring, advanced detection, and human expertise 
+        to prevent breaches before they happen and ensure fast recovery when incidents occur.
+      </p>
+    </div>
+
+    <div class="our-values glow-border">
+      <h2>Core Values</h2>
+      <ul>
+        <li><strong>Proactivity</strong> — we hunt threats before they escalate.</li>
+        <li><strong>Clarity</strong> — honest reporting and actionable guidance.</li>
+        <li><strong>Customization</strong> — solutions built for your exact stack and risk profile.</li>
+      </ul>
+    </div>
+
+    <div class="video glow-border">
+      <video src="/src/7872729-hd_720_1280_25fps.mp4" loop autoplay muted></video>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

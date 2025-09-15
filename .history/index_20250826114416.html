@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="first-sight">
+    <div class="left-door"><img src="/left-door.jpg" alt="" class="left"></div>
+    <div class="right-door"><img src="/right-door.jpg" alt="" class="right"></div>
+  </div>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    .first-sight{
+      display: flex;
+      height: 100vh;
+      width: 100%;
+      flex-direction: row;
+      position: relative;
+    }
+   .left-door {
+  width: 50%;
+  height: 100%;
+  background-color: #333; /* لون الباب */
+  position: absolute;
+  left: 0;
+clip-path: polygon(50% 0%, 50% 10%, 45% 17%, 45% 37%, 50% 43%, 50% 58%, 45% 65%, 45% 83%, 50% 90%, 50% 99%, 0% 99%, 0% 0%);
+}
+     .right-door {
+  width: 50%;
+  height: 100%;
+  background-color: #333; /* لون الباب */
+  position: absolute;
+  right: 0;
+  clip-path: polygon(
+    51% 100%, 51% 96%, 51% 93%, 51% 90%, 51% 86%,
+    51% 84%, 51% 81%, 51% 78%, 51% 76%, 48% 76%,
+    46% 73%, 46% 66%, 51% 65%, 51% 63%, 51% 60%,
+    45% 50%, 45% 44%, 42% 41%, 41% 37%, 41% 22%,
+    42% 19%, 46% 14%, 46% 8%, 51% 6%, 51% 0,
+    0 0, 0 100%
+);
+
+}
+    img{
+      height:100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  </style>
+</body>
+</html>

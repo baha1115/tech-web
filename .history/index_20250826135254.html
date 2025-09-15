@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="div1"></div>
+  <div class="div2"></div>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    body{
+      height: 100vh;
+      width: 100%;
+      position: relative;
+    }
+    .div1{
+      background: url('/img.png');
+      height: 100vh;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: fixed;
+      left: 0;
+    }
+    .div2{
+      background: url('/img2.png');
+      height: 100vh;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: fixed;
+      right: 0;
+    }
+  </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+  <script>
+    let div1=document.querySelector('.div1')
+    let div2=document.querySelector('.div2')
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to('.div1',{ScrollTrigger:{
+      trigger:'.div1',
+      start:'95%',
+      end:'+1500'
+    },x:500})
+  </script>
+</body>
+</html>

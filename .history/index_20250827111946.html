@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+  <svg width="500" height="500">
+    <text x="50" y="100" font-size="70">MEGAMAX</text>
+  </svg>
+  <div class="div1"></div>
+  <div class="div2"></div>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      font-family: Inter;
+    }
+    body{
+      min-height: 100vh;
+      width: 100%;
+      position: relative;
+      scroll-behavior: smooth;
+    }
+    svg{
+      position: fixed;
+      stroke-width: 2;
+      stroke: red;
+      fill:white;
+      z-index: 4;
+    }
+    .div1{
+      background: url('/left-side.png');
+      height: 100vh;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: fixed;
+      left: 0;
+    }
+    .div2{
+      background: url('/right-side.png');
+      height: 100vh;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: fixed;
+      right: 0;
+    }
+  </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+  <script>
+    let div1 = document.querySelector('.div1');
+let div2 = document.querySelector('.div2');
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.to('.div1', {
+  x: 900,
+  scrollTrigger: {
+    trigger: '.div1',
+    start: 'bottom top', // Starts the animation when the top of the div is 95% down from the top of the viewport
+    end: '+=1500',    // Ends the animation after scrolling an additional 1500 pixels
+    scrub: 3,         // Makes the animation "scrub" (link) directly to the scrollbar
+    markers: 3     // Adds markers to help visualize the start and end points
+  }
+});gsap.to('.div2', {
+  x: -900,
+  scrollTrigger: {
+    trigger: '.div1',
+    start: 'bottom top', // Starts the animation when the top of the div is 95% down from the top of the viewport
+    end: '+=1500',    // Ends the animation after scrolling an additional 1500 pixels
+    scrub: 3,         // Makes the animation "scrub" (link) directly to the scrollbar
+    markers: true    // Adds markers to help visualize the start and end points
+  }
+},);
+  </script>
+</body>
+</html>

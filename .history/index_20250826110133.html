@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="first-sight">
+    <div class="left-door"><img src="/left-door.jpg" alt="" class="left"></div>
+    <div class="right-door"><img src="/right-door.jpg" alt="" class="right"></div>
+  </div>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    .first-sight{
+      display: flex;
+      height: 100vh;
+      width: 100%;
+      flex-direction: row;
+    }
+    .left-door{
+      height:100%;
+      width: 50%;
+      border-right: 2px solid black;
+      clip-path: polygon(0 20px);
+    }
+     .right-door{
+      height:100%;
+      width: 50%;
+      border-left: 2px solid black;
+    }
+    img{
+      height:100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  </style>
+</body>
+</html>

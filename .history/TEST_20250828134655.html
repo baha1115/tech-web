@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function mergeWords(word1, word2) {
+    let w1array=word1.split('')
+    let w2array=word2.split('')
+    let endword=w1array.slice((w1array.lenght-4),(w1array.length-1)).join('')
+    let endword2=w1array.slice((w1array.lenght-3),(w1array.length-1)).join('')
+    let begin=w2array.slice(0,3).join('')
+    let begin2=w2array.slice(0,2).join('')
+    if(endword===begin){
+      return [word1,w2array.slice(3).join('')].join('')
+    }else if(endword2===begin2){
+      return [word1,w2array.slice(2).join('')].join('')
+    }
+
+}
+console.log(mergeWords('heelo','elopar'))
+</script>
+</body>
+</html>

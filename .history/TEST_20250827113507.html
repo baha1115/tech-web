@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Techspark – SVG Neon Animation</title>
+  <style>
+    :root{
+      --bg:#0a0a0f;               /* خلفية داكنة */
+      --stroke1:#00e5ff;           /* سماوي نيون */
+      --stroke2:#7c4dff;           /* بنفسجي نيون */
+      --fill1:#00ffd1;             /* فيروزي */
+      --fill2:#5b9dff;             /* أزرق فاتح */
+      --glow1: rgba(0,229,255,.8);
+      --glow2: rgba(124,77,255,.8);
+    }
+    html,body{
+      height:100%;
+      margin:0;
+      background:var(--bg);
+      color:#cbd5e1;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+    }
+    .wrap{
+      height:100%;
+      display:grid;
+      place-items:center;
+      padding:28px;
+    }
+    .card{
+      width:min(1100px, 92vw);
+      aspect-ratio: 11/3.8;
+      background: radial-gradient(1200px 400px at 50% 120%, rgba(0,255,209,.06), transparent 60%),
+                  radial-gradient(900px 380px at 50% -20%, rgba(91,157,255,.07), transparent 60%);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:24px;
+      box-shadow: 0 10px 40px rgba(0,0,0,.45), inset 0 0 30px rgba(0,229,255,.05);
+      display:grid;
+      place-items:center;
+      position:relative;
+      overflow:hidden;
+    }
+    /* شريط وميض رقيق يمر على الخلفية */
+    .sweep{
+      position:absolute; inset:-30% -40%;
+      background: conic-gradient(from 0deg, transparent 0 70%, rgba(255,255,255,.05) 75%, transparent 85%);
+      animation: spin 12s linear infinite;
+      mix-blend-mode: screen;
+    }
+    @keyframes spin{to{transform: rotate(360deg)}}
+
+    svg{width:92%; height:auto; display:block}
+
+    /* نص الشعار */
+    #word{
+      paint-order: stroke fill;
+      fill: url(#gradFill);
+      fill-opacity: 0;                /* سيظهر لاحقًا */
+      stroke: url(#gradStroke);
+      stroke-width: 6;
+      stroke-linejoin: round;
+      filter: url(#glow);
+      vector-effect: non-scaling-stroke;
+    }
+
+    /* رسم الخط بالتدريج */
+    .draw{
+      stroke-dasharray: 2000;
+      stroke-dashoffset: 2000;
+      animation: draw 2.8s ease-out forwards, throb 3.2s ease-in-out 2.8s infinite;
+    }
+    @keyframes draw{
+      70%{ stroke-dashoffset: 0; fill-opacity:.0 }
+      100%{ stroke-dashoffset: 0; fill-opacity:1 }
+    }
+    /* نبض ضوء خفيف بعد الظهور */
+    @keyframes throb{
+      0%,100%{ filter: url(#glow); }
+      50%{ filter: url(#glowSoft); }
+    }
+
+    /* خط تحتي نابض */
+    #underline{
+      stroke: url(#gradStroke);
+      stroke-width: 5;
+      fill: none;
+      filter: url(#glowSoft);
+      stroke-dasharray: 12 10;
+      animation: dash 6s linear infinite;
+    }
+    @keyframes dash{
+      to{ stroke-dashoffset: -220; }
+    }
+
+    /* الشرارات */
+    .spark circle{ filter: url(#glow); }
+
+    /* زر معاينة بسيط */
+    .controls{
+      position:absolute; bottom:16px; inset-inline:16px; display:flex; gap:12px; justify-content:space-between; align-items:center;
+      font-size:.9rem; opacity:.9
+    }
+    .btn{ cursor:pointer; user-select:none; padding:10px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: 0 6px 16px rgba(0,0,0,.35);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .btn:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,.45); border-color: rgba(255,255,255,.16)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="sweep"></div>
+
+      <!-- شعار SVG -->
+      <svg viewBox="0 0 1200 360" role="img" aria-label="techspark logo">
+        <defs>
+          <linearGradient id="gradStroke" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="var(--stroke1)" />
+            <stop offset="100%" stop-color="var(--stroke2)" />
+          </linearGradient>
+          <linearGradient id="gradFill" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="var(--fill1)" />
+            <stop offset="100%" stop-color="var(--fill2)" />
+          </linearGradient>
+
+          <!-- توهج قوي -->
+          <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="b1"/>
+            <feGaussianBlur in="SourceGraphic" stdDeviation="14" result="b2"/>
+            <feMerge>
+              <feMergeNode in="b2"/>
+              <feMergeNode in="b1"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+          <!-- توهج ناعم -->
+          <filter id="glowSoft" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="b1"/>
+            <feMerge>
+              <feMergeNode in="b1"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+
+          <!-- مسار الخط التحتي للشرارات -->
+          <path id="pathUnderline" d="M100 270 C 380 250, 820 290, 1100 270" />
+        </defs>
+
+        <!-- نص logo -->
+        <g transform="translate(40,32)">
+          <!-- نستعمل <text> لتسهيل التعديل على الاسم والخط -->
+          <text id="word" class="draw" x="0" y="160"
+            font-size="168" font-weight="800" letter-spacing="4" font-family="'Segoe UI', Roboto, Arial, sans-serif"
+            dominant-baseline="alphabetic">techspark</text>
+        </g>
+
+        <!-- خط تحتي متوهّج -->
+        <use href="#pathUnderline" id="underline" />
+
+        <!-- شرارات متحركة -->
+        <g class="spark">
+          <circle r="3" fill="var(--stroke1)">
+            <animateMotion dur="3.2s" repeatCount="indefinite" keyTimes="0;1" keyPoints="0;1" calcMode="linear">
+              <mpath href="#pathUnderline" />
+            </animateMotion>
+          </circle>
+        </g>
+        <g class="spark">
+          <circle r="2.2" fill="var(--stroke2)">
+            <animateMotion dur="2.4s" begin="-.8s" repeatCount="indefinite" keyTimes="0;1" keyPoints="0;1" calcMode="linear">
+              <mpath href="#pathUnderline" />
+            </animateMotion>
+          </circle>
+        </g>
+        <g class="spark">
+          <circle r="2.6" fill="var(--fill1)">
+            <animateMotion dur="4.2s" begin="-1.2s" repeatCount="indefinite" keyTimes="0;1" keyPoints="0;1" calcMode="linear">
+              <mpath href="#pathUnderline" />
+            </animateMotion>
+          </circle>
+        </g>
+
+        <!-- لمعان تمريري فوق النص -->
+        <linearGradient id="shineGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="white" stop-opacity="0"/>
+          <stop offset="0.5" stop-color="white" stop-opacity="0.35"/>
+          <stop offset="1" stop-color="white" stop-opacity="0"/>
+        </linearGradient>
+        <rect id="shine" x="-400" y="30" width="320" height="200" fill="url(#shineGrad)" transform="skewX(-18)">
+          <animate attributeName="x" from="-400" to="1400" dur="4.8s" repeatCount="indefinite" />
+        </rect>
+        <mask id="textMask">
+          <g transform="translate(40,32)">
+            <text x="0" y="160" font-size="168" font-weight="800" letter-spacing="4" font-family="'Segoe UI', Roboto, Arial, sans-serif" fill="white">techspark</text>
+          </g>
+        </mask>
+        <rect x="0" y="0" width="1200" height="360" fill="url(#shineGrad)" mask="url(#textMask)" style="mix-blend-mode:screen"/>
+      </svg>
+
+      <div class="controls">
+        <div>شعار <b>Techspark</b> – أسلوب نيون تقني يناسب الخلفية السوداء</div>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <button class="btn" id="replay">إعادة التشغيل</button>
+          <button class="btn" id="invert">وضع أحادي (تركواز)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // إعادة تشغيل حركة الرسم
+    const word = document.getElementById('word');
+    const replay = document.getElementById('replay');
+    replay.addEventListener('click', () => {
+      word.classList.remove('draw');
+      // تحفيز إعادة التدفق لإعادة الأنيميشن
+      void word.offsetWidth;
+      word.classList.add('draw');
+    });
+
+    // تبديل لوحة الألوان إلى لون أحادي أنيق (تركواز)
+    const invertBtn = document.getElementById('invert');
+    let mono = false;
+    invertBtn.addEventListener('click', () => {
+      mono = !mono;
+      if(mono){
+        document.documentElement.style.setProperty('--stroke1', '#00ffd1');
+        document.documentElement.style.setProperty('--stroke2', '#00ffd1');
+        document.documentElement.style.setProperty('--fill1',   '#00ffd1');
+        document.documentElement.style.setProperty('--fill2',   '#00ffd1');
+        invertBtn.textContent = 'ألوان متدرجة';
+      }else{
+        document.documentElement.style.setProperty('--stroke1', '#00e5ff');
+        document.documentElement.style.setProperty('--stroke2', '#7c4dff');
+        document.documentElement.style.setProperty('--fill1',   '#00ffd1');
+        document.documentElement.style.setProperty('--fill2',   '#5b9dff');
+        invertBtn.textContent = 'وضع أحادي (تركواز)';
+      }
+      // إعادة تحفيز التوهج عبر تبديل الفلاتر (اختياري)
+      word.style.filter = 'none';
+      requestAnimationFrame(()=> word.style.filter = 'url(#glow)');
+    });
+  </script>
+</body>
+</html>

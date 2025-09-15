@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+  <div class="first-front">
+    <svg width="600" height="500">
+    <text x="50" y="100" font-size="90">TechSpark</text>
+    </svg>
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <p class="begining">"Your shield in the digital world."</p>
+  </div>
+  
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      font-family: Inter;
+      
+    }
+    body{
+      background-color: blue;
+    }
+    .first-front{
+      min-height: 350vh;
+      width: 100%;
+      position: relative;
+      scroll-behavior: smooth;
+      background-color: white;
+    }
+    .begining{
+      font-size: 70px;
+      position: fixed;
+      z-index: 4;
+      top: 200px;
+      color: gainsboro;
+      left: 50px;
+      font-style: italic;
+    }
+    svg{
+      position: fixed;
+      stroke-width: 2;
+      fill:gainsboro;
+      stroke:white;
+      z-index: 4;
+      animation: move 6s infinite alternate ease-in-out;
+      font-style: italic;
+    }
+    @keyframes move {
+      0%{
+        stroke-dasharray: 10% 10%;
+        stroke-dashoffset: 0;
+        fill: transparent;
+      }
+       25%{
+        stroke-dasharray: 20% 10%;
+        stroke-dashoffset: 25%;
+      }
+       50%, 75%{
+        stroke-dasharray: 50% 10%;
+        stroke-dashoffset: 55%;
+      }
+       100%{
+        stroke-dasharray:   0;
+        stroke-dashoffset: 0;
+        stroke: transparent;
+        fill:gainsboro;
+      }
+      
+    }
+    .div1{
+      background: url('/left-side.png');
+      height: 100vh;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: fixed;
+      left: 0;
+    }
+    .div2{
+      background: url('/right-side.png');
+      height: 100vh;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: fixed;
+      right: 0;
+    }
+  </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+<dotlottie-wc src="https://lottie.host/ff9343b6-9240-4e2b-9f26-ad517eceafdd/KFjui2cdwn.lottie" class="scroll-down"
+style="width: 200px;height: 200px ;position:fixed;z-index:4;bottom:-30px;right:50px;" speed="1" autoplay loop></dotlottie-wc>
+  <script>
+    let div1 = document.querySelector('.div1');
+let div2 = document.querySelector('.div2');
+
+gsap.registerPlugin(ScrollTrigger);
+let tt=gsap.timeline()
+tt.to('.begining, svg, .scroll-down',{opacity:0,
+  scrollTrigger: {
+    trigger: '.div1',
+    start: 'bottom top', 
+    end: '+=200',    
+    scrub: 3,        
+      
+  }
+})
+
+tt.to('.div1', {
+  x: -900,
+  scrollTrigger: {
+    trigger: '.div1',
+    start: 'bottom top', 
+    end: '+=1500',    
+    scrub: 3,        
+      
+  }
+});
+tt.to('.div2', {
+  x: 900,
+  scrollTrigger: {
+    trigger: '.div1',
+    start: 'bottom top', 
+    end: '+=1500',    
+    scrub: 3,       
+    
+  }
+},);
+tt.to('.first-front'{opacity:0})
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    body{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      position: relative;
+    }
+    .burger{
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      background-color:transparent;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    span{
+      display: block;
+      background-color: black;
+      width: 20px;
+      height: 3px;
+      border-radius: 35%;
+      cursor: pointer;
+    }
+    .burger[lala] span:nth-child(1){
+      transform:translate3d(0,-5px,0) rotate(45deg) ;
+    }
+    .burger[lala] span:nth-child(2){
+      display: none;
+    }
+    .burger[lala] span:nth-child(3){
+       transform:translate3d(0,0,0)  ;
+    }
+    
+
+  </style>
+  <script>
+    let span1=document.querySelector('.span1')
+    let span2=document.querySelector('.span2')
+    let span3=document.querySelector('.span3')
+  
+
+    let burger=document.querySelector('.burger')
+    burger.addEventListener('click',e=>{
+      burger.toggleAttribute('lala')
+    })
+  
+  </script>
+</body>
+</html>

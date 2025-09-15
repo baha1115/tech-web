@@ -1,0 +1,112 @@
+   *{
+      padding: 0;
+      margin: 0;
+      font-family: Inter;
+      
+    }
+    body{
+      scroll-behavior: smooth;
+    }
+    /*first-page*/
+    .first-front{
+      min-height: 100vh;
+      width: 100%;
+      position: relative;
+      background-color: white;
+    }
+    .begining{
+      font-size: 70px;
+      position: fixed;
+      z-index: 4;
+      top: 200px;
+      color: gainsboro;
+      left: 50px;
+      font-style: italic;
+    }
+    svg{
+      position: fixed;
+      stroke-width: 2;
+      fill:gainsboro;
+      stroke:white;
+      z-index: 4;
+      animation: move 6s infinite alternate ease-in-out;
+      font-style: italic;
+    }
+    @keyframes move {
+      0%{
+        stroke-dasharray: 10% 10%;
+        stroke-dashoffset: 0;
+        fill: transparent;
+      }
+       25%{
+        stroke-dasharray: 20% 10%;
+        stroke-dashoffset: 25%;
+      }
+       50%, 75%{
+        stroke-dasharray: 50% 10%;
+        stroke-dashoffset: 55%;
+      }
+       100%{
+        stroke-dasharray:   0;
+        stroke-dashoffset: 0;
+        stroke: transparent;
+        fill:gainsboro;
+      }
+      
+    }
+    .div1{
+      background: url('/src/left-side.png');
+      height: 100vh;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: fixed;
+      left: 0;
+    }
+    .div2{
+      background: url('/src/right-side.png');
+      height: 100vh;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: fixed;
+      right: 0;
+    }
+    /*hero-section*/
+    .background{
+      height: 100vh;
+      width: 100%;
+      background: url('/src/electronic-background.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    .video-container-continer{
+       height: 80vh;
+       width: 80%;
+       margin-left: 100px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+    }
+    .video-container {
+     height: 80vh;
+     width: 80%;
+     clip-path: polygon(100% 81%, 71% 81%, 71% 100%, 0 100%, 0 22%, 25% 22%, 25% 0%, 100% 0);
+     background-color: brown;
+     border-radius: 15px;
+     position: relative;
+    }
+
+    .div{
+      background-color: aqua;
+      height: 120px;
+      width: 100px;
+      position: absolute;
+      z-index: 4;
+      bottom: 40px;
+      right: 200px;
+      border-radius: 11px;
+    }

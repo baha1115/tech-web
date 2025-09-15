@@ -1,0 +1,212 @@
+   *{
+      padding: 0;
+      margin: 0;
+      font-family: Inter;
+      
+    }
+    body{
+      scroll-behavior: smooth;
+    }
+    /*first-page*/
+    .first-container{
+      min-height: 100vh;
+      width: 100%;
+      position: fixed;
+      z-index: 99;
+    }
+    .first-front{
+      min-height: 100vh;
+      width: 100%;
+      position: relative;
+      background-color: white;
+      
+    }
+    .begining{
+      font-size: 70px;
+      position: fixed;
+      z-index: 4;
+      top: 200px;
+      color: gainsboro;
+      left: 50px;
+      font-style: italic;
+    }
+    .text{
+      position: fixed;
+      stroke-width: 2;
+      fill:gainsboro;
+      stroke:white;
+      z-index: 4;
+      animation: move 6s infinite alternate ease-in-out;
+      font-style: italic;
+    }
+    @keyframes move {
+      0%{
+        stroke-dasharray: 10% 10%;
+        stroke-dashoffset: 0;
+        fill: transparent;
+      }
+       25%{
+        stroke-dasharray: 20% 10%;
+        stroke-dashoffset: 25%;
+      }
+       50%, 75%{
+        stroke-dasharray: 50% 10%;
+        stroke-dashoffset: 55%;
+      }
+       100%{
+        stroke-dasharray:   0;
+        stroke-dashoffset: 0;
+        stroke: transparent;
+        fill:gainsboro;
+      }
+      
+    }
+    .scroll-down{
+      width: 100px;
+      height: 100px ;
+      position:fixed;
+      z-index:4;
+      bottom:30px;
+      right:50px;
+    }
+    .div1{
+      background: url('/src/left-side.png');
+      height: 100vh;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: fixed;
+      left: 0;
+    }
+    .div2{
+      background: url('/src/right-side.png');
+      height: 100vh;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: fixed;
+      right: 0;
+    }
+    /*hero-section*/
+    .background{
+      height: 100vh;
+      width: 100%;
+      
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+    }
+    .hero-section{
+      display: block;
+      height: 100vh;
+      width: 100%;
+      position: relative;
+    }
+    .video-container {
+        height: 80vh;
+        width: 80%;
+        position: absolute;
+        left: 0;
+        -webkit-mask-image: url('/src/mask.svg');
+        -webkit-mask-size: cover;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+
+        mask-image: url('/src/mask.svg');
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        mask-position: cover;
+        top: 0px;
+      }
+      .logo{
+        position: absolute;
+        top: 10px;
+        left: 0px;
+        width: 300px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 55px;
+        font-style: italic;
+      }
+      nav{
+        background-color:azure;
+        height: 60.4vh;
+        width: 80px;
+        position:absolute;
+        left: 8px;
+        top: 117px;
+        border-radius: 11px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      ul{
+        list-style: none;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+      li{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      li img{
+       width: 50px;
+       height: 50px;
+       object-fit: cover;
+      }
+      a{
+        text-decoration: none;
+        color: black;
+      }
+      .info{
+        position: absolute;
+        right: 5px;
+        top: 13px;
+        height: 56.7vh;
+        width: 350px;
+        background-color: azure;
+        border-radius: 11px;
+      }
+      .infinite-scroll{
+        width: 700px;
+        height: 130px;
+        position: absolute;
+        bottom: 5px;
+        left: 10px;
+        background-color: rgb(210, 253, 253);
+        border-radius: 11px;
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+        align-items: center;
+        justify-content: center;
+        font-size: 45px;
+        font-weight: 700;
+        font-family:Inter ;
+      }
+      
+
+      video{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+      .hook{
+        margin-left: -40px;
+      }
+
+    

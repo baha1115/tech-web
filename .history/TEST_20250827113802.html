@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>Techspark SVG Animation</title>
+  <style>
+    body{
+      margin:0;
+      background:#000;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+    svg{
+      width:80%;
+      max-width:800px;
+    }
+    text{
+      font-family:'Segoe UI', sans-serif;
+      font-size:120px;
+      font-weight:700;
+      fill:none;
+      stroke:#00fff7;
+      stroke-width:3;
+      stroke-dasharray:1200;
+      stroke-dashoffset:1200;
+      animation: draw 3s ease forwards, glow 2s ease-in-out infinite alternate;
+    }
+    @keyframes draw{
+      to{stroke-dashoffset:0; fill:#00fff7;}
+    }
+    @keyframes glow{
+      from{filter:drop-shadow(0 0 5px #00fff7);} 
+      to{filter:drop-shadow(0 0 20px #00fff7);} 
+    }
+  </style>
+</head>
+<body>
+  <svg viewBox="0 0 1000 200">
+    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle">Techspark</text>
+  </svg>
+</body>
+</html>
