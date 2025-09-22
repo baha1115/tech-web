@@ -16,7 +16,7 @@ body {
   width: 100%;
   position: fixed;
   z-index: 99;
-  display:block;
+  display: none;
 }
 .first-front {
   min-height: 100vh;
@@ -158,19 +158,6 @@ body {
   flex-direction: column;
   justify-content: center;
   z-index: 4;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-  .hero-text {
-    font-size: 3rem;
-    left: 21%;
-    top: 30%;
-  }
-  
-}
-@media (max-width:500px) {
-  .scrolling{
-    right:50% ;
-  }
 }
 .nav-bar {
   position: absolute;
@@ -816,12 +803,12 @@ body {
     height:500px;
     position:absolute;
     right: 10px;
-    top: -30px;
+    top: -10px;
   }
    .section-title {
     font-size: 40px;
     position: absolute;
-    top: -90px;
+    top: 0;
   }
    .section2{
     height:60vh;

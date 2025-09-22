@@ -16,7 +16,7 @@ body {
   width: 100%;
   position: fixed;
   z-index: 99;
-  display:block;
+  display: none;
 }
 .first-front {
   min-height: 100vh;

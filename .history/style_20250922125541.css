@@ -16,7 +16,7 @@ body {
   width: 100%;
   position: fixed;
   z-index: 99;
-  display:block;
+  display: none;
 }
 .first-front {
   min-height: 100vh;
@@ -166,11 +166,6 @@ body {
     top: 30%;
   }
   
-}
-@media (max-width:500px) {
-  .scrolling{
-    right:50% ;
-  }
 }
 .nav-bar {
   position: absolute;
