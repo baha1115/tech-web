@@ -145,6 +145,7 @@ body {
   border-radius: 2px;
   transition: 0.3s;
 }
+
 /* حالة مفتوحة (X) */
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
@@ -155,6 +156,7 @@ body {
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
+
 /* 📱 Responsive */
 @media (max-width: 500px) {
   .nav-bar {
@@ -586,7 +588,6 @@ body {
     font-size: 1.1rem;
   }
   .scene-lottie {
-    display: none;
     width: 400px;
     height: 400px;
     position: absolute;
