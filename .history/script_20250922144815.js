@@ -39,20 +39,7 @@ ScrollTrigger.scrollerProxy("[data-scroll-container]", {
 
 ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 ScrollTrigger.refresh();
-// ...existing code...
 
-// إصلاح مشكلة الروابط الداخلية مع Locomotive Scroll
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener('click', function(e) {
-    const targetId = this.getAttribute('href');
-    if (targetId.length > 1 && document.querySelector(targetId)) {
-      e.preventDefault();
-      locoScroll.scrollTo(document.querySelector(targetId));
-    }
-  });
-});
-
-// ...existing code...
 // ================== أنيميشن الهيرو ==================
 let maintl = gsap.timeline({ repeat: -1, yoyo: true });
 let words = ['threats', 'risks', 'attacks', 'dangers'];
